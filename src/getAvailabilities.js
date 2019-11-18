@@ -3,7 +3,7 @@ import knex from "knexClient";
 
 export default async function getAvailabilities(date) {
   const availabilities = new Map();
-  for (let i = 0; i < 7; ++i) {
+  for (let i = 0; i < 5; ++i) {
     const tmpDate = moment(date).add(i, "days");
     availabilities.set(tmpDate.format("d"), {
       date: tmpDate.toDate(),
@@ -35,5 +35,5 @@ export default async function getAvailabilities(date) {
     }
   }
 
-  return Array.from(availabilities.values())
+  return Array.from(availabilities.values());
 }

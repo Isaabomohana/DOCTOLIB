@@ -7,8 +7,8 @@ describe("getAvailabilities", () => {
   describe("case 1", () => {
     it("test 1", async () => {
       const availabilities = await getAvailabilities(new Date("2014-08-10"));
-      expect(availabilities.length).toBe(7);
-      for (let i = 0; i < 7; ++i) {
+      expect(availabilities.length).toBe(5);
+      for (let i = 0; i < 5; ++i) {
         expect(availabilities[i].slots).toEqual([]);
       }
     });
@@ -33,7 +33,7 @@ describe("getAvailabilities", () => {
 
     it("test 1", async () => {
       const availabilities = await getAvailabilities(new Date("2014-08-10"));
-      expect(availabilities.length).toBe(7);
+      expect(availabilities.length).toBe(5);
 
       expect(String(availabilities[0].date)).toBe(
         String(new Date("2014-08-10"))
@@ -52,8 +52,8 @@ describe("getAvailabilities", () => {
         "12:00"
       ]);
 
-      expect(String(availabilities[6].date)).toBe(
-        String(new Date("2014-08-16"))
+      expect(String(availabilities[4].date)).toBe(
+        String(new Date("2014-08-14"))
       );
     });
   });
@@ -68,8 +68,8 @@ describe("getAvailabilities", () => {
         },
         {
           kind: "opening",
-          starts_at: new Date("2018-08-04 09:30"),
-          ends_at: new Date("2018-08-04 12:30"),
+          starts_at: new Date("2018-08-06 09:30"),
+          ends_at: new Date("2018-08-06 12:30"),
           weekly_recurring: true
         }
       ]);
@@ -77,7 +77,7 @@ describe("getAvailabilities", () => {
 
     it("test 1", async () => {
       const availabilities = await getAvailabilities(new Date("2014-08-10"));
-      expect(availabilities.length).toBe(7);
+      expect(availabilities.length).toBe(5);
 
       expect(String(availabilities[0].date)).toBe(
         String(new Date("2014-08-10"))
@@ -87,7 +87,7 @@ describe("getAvailabilities", () => {
       expect(String(availabilities[1].date)).toBe(
         String(new Date("2014-08-11"))
       );
-      expect(availabilities[6].slots).toEqual([
+      expect(availabilities[1].slots).toEqual([
         "9:30",
         "10:00",
         "10:30",
